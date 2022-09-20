@@ -1,0 +1,12 @@
+<main class="lista-vacantes">
+    <h2>Lista de Vacantes</h2>
+
+    {{#if vacantes.length }}
+        {{#each vacantes}}
+            {{>vacantes-loop vacante=this }}
+        {{/each}}
+    {{else }}
+        <p>No hay vacantes</p>
+    {{/if }}
+    
+</main>

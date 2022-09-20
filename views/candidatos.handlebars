@@ -1,0 +1,11 @@
+<main class="lista-candidatos">
+    <h2>lista de candidatos</h2>
+    {{#if candidatos.length}}
+        {{#each candidatos}}
+            {{>candidatos-loop candidato=this}}
+            <p>{{{this.nombre}}}</p>
+        {{/each}}
+    {{else}}
+        <p>Aún no hay candidatos</p>
+    {{/if}}
+</main>

@@ -1,0 +1,83 @@
+<div class="contenido-superior vacante contenedor">
+    
+    <div class="caja">
+        <p class="etiqueta">Empresa</p>
+        <p class="nombre">{{empresa}}</p>
+    </div>
+    
+    <div class="caja">
+        <p class="etiqueta">Ubicacion</p>
+        <p class="nombre">{{ubicacion}}</p>
+    </div>
+
+    <div class="caja">
+        <p class="etiqueta">Contrato</p>
+        <p class="nombre contrato">{{contrato}}</p>
+    </div>
+
+    <div class="caja">
+        <p class="etiqueta">Salario</p>
+        <p class="nombre contrato">{{salario}}</p>
+    </div>
+</div>
+
+<div class="vacante-contenedor contenedor">
+    <main class="contenido">
+        <h2>Descripcion del puesto</h2>
+        <div class="vacante-descripcion">
+            {{{descripcion}}}
+        </div>
+
+        <a href="/vacantes/editar/{{url}}" class="btn btn-azul editar-btn">Editar Vacante</a>
+    </main>
+
+    <aside class="sidebar">
+        <h2>Conocimientos deseados</h2>
+        <ul class="skills">
+            {{#each skills}}
+                <li>{{this}}</li>
+            {{/each}}
+        </ul>
+    </aside>
+</div>
+
+<div class="contenedor datos-reclutador">
+    <div class="enviar-datos">
+        <h2>Contactar Reclutador</h2>
+        <p>Llena el siguiente formulario y pronto te contactaran</p>
+
+        {{!-- Para poder subir archivos es importante tener enctype="multipart/form-data" en el formulario --}}
+        <form action="/vacantes/{{url}}" method="POST" enctype="multipart/form-data" class="default-form">
+            <div class="campo">
+                <label>Nombre</label>
+                <input type="text" name="nombre" placeholder="Nombre">
+            </div>
+
+            <div class="campo">
+                <label>E-mail</label>
+                <input type="email" name="email" placeholder="E-mail">
+            </div>
+
+            <div class="campo">
+                <label>CV (PDF)</label>
+                <input type="file" name="cv">
+            </div>
+
+            <div class="campo">
+                <input type="submit" value="Enviar" class="btn btn-verde">
+            </div>
+        </form>
+
+    </div>
+
+    <div class="info-reclutador">
+        <h2>Informacion del Reclutador</h2>
+        {{#if reclutadorNombre}}
+            <p>{{reclutadorNombre}}</p>
+        {{/if}}
+
+        {{#if reclutadorImagen}}
+            <img src="/uploads/perfiles/{{reclutadorImagen}}" alt="">
+        {{/if}}
+    </div>
+</div>

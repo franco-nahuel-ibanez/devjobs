@@ -1,0 +1,21 @@
+
+<main class="lista-vacantes">
+    <h2>Navegacion</h2>
+
+    <div class="botones separador">
+        <a href="/editar-perfil" class="btn btn-azul">Editar Perfil</a>
+        <a href="/vacantes/nueva" class="btn btn-verde">Crear Nueva Vacante</a>
+    </div>
+
+
+    <h2>Tus Vacantes</h2>
+    <div class="panel-administracion">
+        {{#if vacantes.length}}
+            {{#each vacantes}}
+                {{>vacantes-admin vacante=this }}
+            {{/each}}
+        {{else}}
+            <p>No hay vacantes. Crea una</p>
+        {{/if}}
+    </div>
+</main>
